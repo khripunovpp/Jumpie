@@ -1,0 +1,116 @@
+@import "bourbon"
+@import "icon.sass"
+@import "mixins"
+
+$color: #f4c409
+$font: 'Roboto', sans-serif
+
+html
+	box-sizing: border-box
+
+*,
+*::after,
+*::before
+	box-sizing: inherit
+	outline: none
+
+@include placeholder()
+	color: #eee
+
+body
+	margin: 0	
+	overflow-x: hidden
+	font-family: $font
+	line-height: 1.4
+	font-size: 14px
+	background-color: #fff
+	text-size-adjust: 100%
+	-webkit-tap-highlight-color: transparent
+
+img
+	max-width: 100%	
+	border: none	
+	outline: none	
+
+a
+	border: none	
+	outline: none	
+
+ul
+	list-style-type: none	
+	margin: 0	
+	padding: 0
+
+select::-ms-expand
+	display: none
+
+select
+	appearance: none
+
+button,
+input,
+textarea,
+select
+	font-family: $font
+
+%container
+	width: 100%
+	max-width: 970px	
+	padding: 0 15px
+	margin: 0 auto
+
+%grid
+	display: table
+	width: 100%
+	table-layout: fixed
+
+%part
+	display: table-cell
+	vertical-align: top
+
+.container
+	@extend %container
+
+nav
+	position: fixed
+	left: 0
+	top: 0
+	width: 100%
+	background-color: #f67070
+	ul
+		display: flex
+		justify-content: space-between
+		overflow-x: auto
+		white-space: nowrap
+		-webkit-overflow-scrolling: touch
+		
+	li
+		&:hover,
+		&.active
+			a
+				text-decoration: underline
+				background-color: #fff
+				color: #f67070
+
+	a
+		color: inherit
+		font-weight: 700
+		color: #fff
+		text-transform: uppercase
+		text-decoration: none
+		display: inline-block
+		padding: 15px 50px
+
+section
+	height: 200vh
+	&:nth-child(odd)
+		background-color: #f6b370
+	&:nth-child(even)
+		background-color: #7070f6
+	&:last-child
+		height: 50vh
+		background-color: 	#70f670
+
+
+//ALWAYS END
+@import "media"
