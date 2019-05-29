@@ -9,7 +9,7 @@ class Jumpie {
     }
     _init() {
         const that = this
-
+        
         that._check.call(that)
         window.addEventListener('scroll', function(e) {
             that._check.call(that)
