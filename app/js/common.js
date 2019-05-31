@@ -9,7 +9,7 @@ class Jumpie {
     }
     _init() {
         const that = this
-        
+
         that._check.call(that)
         window.addEventListener('scroll', function(e) {
             that._check.call(that)
@@ -46,13 +46,15 @@ class Jumpie {
     }
     _setActive() {
         const root = this
-        let link = document.querySelector(root.settings.itemEl + ' a[href="#' + root.lastId + '"]')
         let links = document.querySelectorAll(root.settings.itemEl + ' a')
         links.forEach(function(el) {
-            el.parentElement.classList.remove('active')
+            if (el.hash == '#' + root.lastId) {
+                el.parentElement.classList.add('active')
+                root._scrollNav()
+            } else {
+                el.parentElement.classList.remove('active')
+            }
         })
-        link.parentElement.classList.add('active')
-        root._scrollNav()
     }
     _scrollNav() {
         const root = this
